@@ -9,18 +9,17 @@ class App < Sinatra::Base
     end
 
     post '/teams' do
-      @team_name = params[team][name]
-      @team_motto = params[team][motto]
-      @member1_name = params[team][members][][name]
-      @member2_name = params[team][members][][name]
-      @member3_name = params[team][members][][name]
-      @member1_power = params[team][members][][power]
-      @member2_power = params[team][members][][power]
-      @member3_power = params[team][members][][power]
-      @member1_bio = params[team][members][][bio]
-      @member2_bio = params[team][members][][bio]
-      @member3_bio = params[team][members][][bio]
-      binding.pry
+      @team_name = params[:team][:name]
+    @team_motto = params[:team][:motto]
+    @hero_name = []
+    @hero_power = []
+    @hero_bio = []
+    @team_members = params[:team][:members]
+    @team_members.each do |hero|
+      @hero_name << hero[:name]
+      @hero_power << hero[:power]
+      @hero_bio << hero[:bio]
+    end
       erb :team
     end
 end
