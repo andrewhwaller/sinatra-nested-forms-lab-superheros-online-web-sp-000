@@ -1,16 +1,11 @@
-<h1>Here's your team!</h1>
-<ul>
-  <li>Team name: <%=@team_name%></li>
-  <li>Team motto: <%=@team_motto%></li>
-  <br>
-  <li>Hero Name: <%=@member1_name%></li>
-  <li>Hero Power: <%=@member1_power%></li>
-  <li>Hero Bio: <%=@member1_bio%></li>
-  <br>
-  <li>Hero Name: <%=@member2_name%></li>
-  <li>Hero Power: <%=@member2_power%></li>
-  <li>Hero Bio: <%=@member2_bio%></li>
-  <br>
-  <li>Hero Name: <%=@member3_name%></li>
-  <li>Hero Power: <%=@member3_power%></li>
-  <li>Hero Bio: <%=@member3_bio%></li>
+<h1><%= @team_name %></h1>
+<h2>Team Motto: <%= @team_motto %></h2>
+
+<% @team_members.each.with_index do |hero, index| %>
+  <h2>Hero Name: <%= @hero_name[index] %></h2>
+  <p>
+    Hero power: <%= @hero_power[index] %>
+    <br>
+    Hero biography: <%= @hero_bio[index] %>
+  </p>
+<% end %>
