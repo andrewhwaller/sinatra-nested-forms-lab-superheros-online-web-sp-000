@@ -20,6 +20,7 @@ class App < Sinatra::Base
       @member1_bio = params[team][members][][bio]
       @member2_bio = params[team][members][][bio]
       @member3_bio = params[team][members][][bio]
+      binding.pry
       erb :team
     end
 end
